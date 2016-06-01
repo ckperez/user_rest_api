@@ -1,7 +1,7 @@
 'use strict';
 
 const express = require('express');
-const bodyParser = require('body-parser');
+const bodyParser = require('body-parser').json();
 const User = require(__dirname + '/../model/user');
 const basicHTTP = require(__dirname + '/../lib/basic_http');
 
@@ -16,7 +16,7 @@ router.post('/signup', bodyParser, (req, res, next)=>{
     if (err || user) return next(new Error('Could not create user'));
     newUser.save((err, user)=>{
       if (err) return next(new Error('Could not create user'));
-      res.json({token:'Hall Pass'});
+      res.json({token:'New Hall Pass'});
     });
   });
 });
@@ -26,6 +26,6 @@ router.get('/signin', basicHTTP, (req, res, next)=>{
     if (err || !user) return next(new Error('Could not sign in'));
     if (!user.comparePassword(req.auth.password)) return next(new Error('Could not sign in'));
 
-    res.json({token:'Hall Pass'});
+    res.json({token:'Used Hall Pass'});
   });
 });
