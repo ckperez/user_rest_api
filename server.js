@@ -6,6 +6,8 @@ const mongoose = require ('mongoose');
 
 mongoose.connect('mongodb://localhost/auth_db');
 
-//app.use('/', authRoutes);
+app.use('/', authRoutes);
 
-app.listen(3000, ()=>{console.log('Server way the fudge up on THREE THOUSAND!')})
+app.listen(3000, ()=>{
+  console.log('Server way the fudge up on THREE THOUSAND!');
+});
