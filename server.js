@@ -2,7 +2,7 @@
 
 const app = require('express')();
 const authRoutes = require(__dirname + '/route/auth_routes');
-const mongoose = require ('mongoose');
+const mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/auth_db');
 
