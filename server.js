@@ -3,8 +3,11 @@
 const app = require('express')();
 const authRoutes = require(__dirname + '/route/auth_routes');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 mongoose.connect('mongodb://localhost/auth_db');
+
+app.use(cors());
 
 app.use('/', authRoutes);
 
